@@ -1,0 +1,40 @@
+<div>
+  <form [formGroup]="addressForm" autocomplete="off" (ngSubmit)=addressDetailsForm()>
+    <div class="form-group">
+      <input type="text" formControlName="address1" [(ngModel)]="commonService.registerObj.address1" class="form-control" [ngClass]="{'is-invalid': addressSubmitted && adresForm.address1.errors || (adresForm.address1.invalid && (adresForm.address1.dirty || adresForm.address1.touched))}">
+      <label for="addr1">Address 1* <span>(P.O. Box numbers are permitted)</span></label>
+    </div>
+    <div class="form-group">
+      <input type="text" formControlName="address2" [(ngModel)]="commonService.registerObj.address2" class="form-control" [ngClass]="{'is-invalid': addressSubmitted && adresForm.address2.errors || (adresForm.address2.invalid && (adresForm.address2.dirty || adresForm.address2.touched))}">
+      <label for="addr2">Address 2</label>
+    </div>
+    <div class="form-group">
+      <input type="text" formControlName="city" [(ngModel)]="commonService.registerObj.city" class="form-control" [ngClass]="{'is-invalid': addressSubmitted && adresForm.city.errors || (adresForm.city.invalid && (adresForm.city.dirty || adresForm.city.touched))}">
+      <label for="city">City*</label>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="form-group">
+          <select class="form-control" [(ngModel)]="commonService.registerObj.state" formControlName="state">
+            <option *ngFor="let item of countryName" [value]="item.StateID">{{item.StateName}}</option>
+          </select>
+          <!--<input type="text" [(ngModel)]="" class="form-control" [ngClass]="{'is-invalid': addressSubmitted && adresForm.state.errors || (adresForm.state.invalid && (adresForm.state.dirty || adresForm.state.touched))}">-->
+          <label for="state">State*</label>
+        </div>
+      </div>
+      <!-- col 8-->
+      <div class="col-md-3">
+        <div class="form-group">
+          <input type="number" formControlName="zipcode" [(ngModel)]="commonService.registerObj.zipcode" class="form-control" [ngClass]="{'is-invalid': addressSubmitted && adresForm.zipcode.errors || (adresForm.zipcode.invalid && (adresForm.zipcode.dirty || adresForm.zipcode.touched))}">
+          <label for="zip">Zip*</label>
+        </div>
+      </div>
+      <!-- col 4-->
+    </div>
+    <div class="form-buttons">
+      <!--[disabled]="!addressForm.valid"-->
+      <button type="button" class="form-btn" (click)="backtoContact()"><i class="fa fa-caret-left mr-2" aria-hidden="true"></i> Previous </button>
+      <button type="submit" [disabled]="!addressForm.valid" class="form-btn ml-3">Next <i class="ml-2 fa fa-caret-right" aria-hidden="true"></i></button>
+    </div>
+  </form>
+</div>

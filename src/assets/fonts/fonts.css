@@ -1,0 +1,16 @@
+@font-face {
+    font-family: ProximaNova;
+    src: url("../fonts/proximanova-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova-bold;
+    font-weight: bold;
+    src: url("../fonts/Proxima-Nova-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova-italic;
+    font-style: italic;
+    src: url("../fonts/proximanova-regularitalic.otf") format("opentype");
+}

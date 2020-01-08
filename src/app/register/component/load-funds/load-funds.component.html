@@ -1,0 +1,67 @@
+<div>
+  <form [formGroup]="fundsForm" autocomplete="off" (ngSubmit)=FundForm()>
+    <h4>LOAD FUNDS DIRECTLY FROM YOUR CURRENT BANK </h4>
+    <p>
+      Loading funds to start using your 4-H UNCAR GroundSwell card is now even easier. Select your bank below.
+    </p>
+    <div class="bank-container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-md-8 col-lg-8">
+              <div class="row">
+                <div class="col-md-6 col-lg-6 text-right">
+                  <label for="email" class="mr-sm-2">ENTER THE NAME OF YOU BANKING INSTITUTION</label>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <!-- <input type="email" formControlName="email" class="form-control mb-2 mr-sm-2" placeholder="Enter email" id="email"  *ngIf="submitted && fundForm.email.errors || (fundForm.email.invalid && (fundForm.email.dirty || fundForm.email.touched))">-->
+                </div>
+                <!-- col 6-->
+              </div>
+            </div>
+            <!-- col 8-->
+          </div>
+        </div>
+        <!-- col 12 -->
+      </div>
+    </div>
+    <!-- bank container-->
+    <div class="row">
+      <div class="col-md-12 col-lg-12 funds-checkbox">
+        <div class="d-flex">
+          <div class="py-2 pl-2">
+            <input type="checkbox" id="exampleRadios1" (change)="fundtransfer($event)" formControlName="is_fundstransfer" [(ngModel)]="commonService.registerObj.registeration_data.is_fundstransfer">
+          </div>
+          <div class="px-3 py-2">
+            <p>
+              I wish to transfer funds from my selected financial institution selected above. These funds will take between 3-5 days to complete. You will be notified when they are available.
+            </p>
+            <div *ngIf="commonService.IsTransfer">
+              <input type="number" formControlName="cardamount" [(ngModel)]="commonService.registerObj.registeration_data.cardamount">
+              <label>$ transfer to your card </label>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="py-2 pl-2">
+            <input type="checkbox" id="exampleRadios2" formControlName="is_roundup" [(ngModel)]="commonService.registerObj.registeration_data.is_roundup">
+          </div>
+          <div class="px-3 py-2">
+            <p>
+              I want to Round up all of my purchases to benefit 4-H UC ANR. A single charge totaling the difference between the next highest dollar amount will be added together and a single charge for the previous week will be placed.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- col 12 -->
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" class="form-btn float-right" (click)="backtoAccount()"><i class="fa fa-caret-left mr-2" aria-hidden="true"></i> Previous </button>
+      <button type="submit" class="form-btn float-right ml-3">Next <i class="ml-2 fa fa-caret-right" aria-hidden="true"></i></button>
+    </div>
+
+
+
+  </form>
+</div>

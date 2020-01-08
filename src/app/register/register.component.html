@@ -1,0 +1,137 @@
+
+<div class="main-inner">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-3">
+      <div class="sidebar">
+        <div class="sidebar-heading">
+          <h2>4-H uc anr groundswell debit card application</h2>
+        </div>
+        <div class="img-div"></div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quod numquam eveniet laudantium totam sit corrupti! Voluptates, dicta delectus hic reprehenderit, facilis adipisci iure tenetur, nulla explicabo nesciunt unde aliquid! Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Repellendus quod numquam eveniet laudantium totam sit corrupti! Voluptates, dicta delectus hic reprehenderit, facilis adipisci iure tenetur, nulla explicabo nesciunt unde aliquid! Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Repellendus quod numquam eveniet laudantium totam sit corrupti! Voluptates, dicta delectus hic reprehenderit, facilis adipisci iure tenetur, nulla explicabo nesciunt unde aliquid! Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Repellendus quod numquam eveniet laudantium totam sit corrupti! Voluptates, dicta delectus hic reprehenderit, facilis adipisci iure tenetur, nulla
+
+        </p>
+
+      </div>
+
+    </div>
+    <div class="col-md-12 col-lg-12 col-xl-9 form-container">
+      <div class="step-navigation">
+        <ul>
+          <li [ngClass]="{'active':commonService.IsContactDetails}"><span>Contact Details</span></li>
+          <li [ngClass]="{'active':commonService.IsAddressDetails}"><span>Address</span></li>
+          <li [ngClass]="{'active':commonService.IsAccountDetails}"><span>Account Setup</span></li>
+          <li [ngClass]="{'active':commonService.IsFundsDetails}"><span>Load Funds</span></li>
+          <li [ngClass]="{'active':commonService.IsComfirmDetails}"><span>Confirm</span></li>
+        </ul>
+      </div>
+      <!-- step navigation-->
+
+      <div class="step-responsive">
+        <ul>
+          <li [ngClass]="{'active':commonService.IsContactDetails}"><span>Contact Details</span></li>
+          <li [ngClass]="{'active':commonService.IsAddressDetails}"><span>Address</span></li>
+          <li [ngClass]="{'active':commonService.IsAccountDetails}"><span>Account Setup</span></li>
+          <li [ngClass]="{'active':commonService.IsFundsDetails}"><span>Load Funds</span></li>
+          <li [ngClass]="{'active':commonService.IsComfirmDetails}"><span>Confirm</span></li>
+        </ul>
+      </div>
+      <!-- step responsive-->
+      
+      <app-contact-details *ngIf="commonService.IsContactDetails"></app-contact-details>
+      <app-address-details *ngIf="commonService.IsAddressDetails"></app-address-details>
+     <app-account-setup *ngIf="commonService.IsAccountDetails"></app-account-setup>
+     <app-load-funds *ngIf="commonService.IsFundsDetails"></app-load-funds>
+      <app-confirm-details *ngIf="commonService.IsComfirmDetails"></app-confirm-details>
+      <app-final-details *ngIf="commonService.IsFinalDetails"></app-final-details>
+    </div>
+    <!-- col 9-->
+  </div>
+  <!-- row -->
+</div>
+<!-- inner main -->
+<!--popup-->
+<!-- <div class="modal-popup" *ngIf="IsCashFeeContent"> -->
+<!-- Modal -->
+<div class="modal-popup modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="IsCashFeeContent">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"> -->
+      <div class="modal-header">
+        <h3>important - please read carefully</h3>
+        <a (click)="closeModel()"><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Monthly fee</th>
+                <th>Per purchase</th>
+                <th>ATM withdrawal</th>
+                <th>Cash reload</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$0</td>
+                <td>$0</td>
+                <td>$2.95</td>
+                <td>$0</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td>ATM balance inquiry</td>
+                <td>$0.75</td>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Customer service <span>(automated or live agent)</span></td>
+                <td>$0 or $0 <span>per call</span></td>
+
+              </tr>
+              <tr>
+                <td>Inactivity <span>(after 12months no transaction)</span></td>
+                <td>$4.95 <span>per month</span></td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>We charge 4 other types of fees</h4>
+        <p class="mb-5">*This fee can be lower depending on how and where this card is used.</p>
+
+        <p class="mb-1"><b>No overdraft/credit feature.</b></p>
+        <p class="mb-5">Your funds are eligible for FDIC insurance and other protections.</p>
+
+        <p class="mb-1">For general information about prepaid accounts visit <a href="#">club.gov/prepaid</a></p>
+        <p class="mb-1">For details and conditions for all fees and services in the long form disclosure,</p>
+        <p class="mb-1">or call <a href="#">801-386-9188</a> or visit <a href="#">groundswell.com</a></p>
+      </div>
+      <!-- modal body -->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary">Accept</button>
+      </div>
+      <!-- </div>
+        </div>
+      </div> -->
+    </div>
+    </div>
+</div>

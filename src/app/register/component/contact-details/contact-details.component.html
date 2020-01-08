@@ -1,0 +1,71 @@
+<div>
+  <form [formGroup]="registerForm" autocomplete="off" (ngSubmit)=contactDetailsForm()>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="commonService.registerObj.registeration_data.firstName" (keyup)="namevalidations()" [ngClass]="{'is-invalid': submitted && regForm.firstName.errors || (regForm.firstName.invalid && (regForm.firstName.dirty || regForm.firstName.touched))}" class="form-control" placeholder="" id="first" formControlName="firstName">
+          <label for="first">First Name*</label>
+          <div class="text-danger">
+            <div class="error-msg" *ngIf="submitted && regForm.firstName.errors || (regForm.firstName.invalid && (regForm.firstName.dirty || regForm.firstName.touched))">
+              <p *ngIf="regForm.firstName.errors.required">Please Enter Name</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- col 8-->
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="commonService.registerObj.registeration_data.middleName" (keyup)="namevalidations()" [ngClass]="{'is-invalid': submitted && regForm.middleName.errors}" class="form-control" placeholder="" id="middle" formControlName="middleName">
+          <label for="middle">Middle Initial</label>
+        </div>
+      </div>
+      <!-- col 4-->
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="commonService.registerObj.registeration_data.lastName" (keyup)="namevalidations()" [ngClass]="{'is-invalid': submitted && regForm.lastName.errors || (regForm.lastName.invalid && (regForm.lastName.dirty || regForm.lastName.touched))}" class="form-control" placeholder="" id="last" formControlName="lastName">
+      <label for="last">Last Name*</label>
+      <div class="text-danger">
+        <div class="error" *ngIf="IsNameErrorMsg">
+          <p>First Name, Middle Name, Last Name exceeded 23 characters</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="email" [(ngModel)]="commonService.registerObj.registeration_data.email" [ngClass]="{'is-invalid': submitted && regForm.email.errors || (regForm.email.invalid && (regForm.email.dirty || regForm.email.touched))}" class="form-control" id="email" formControlName="email">
+      <label for="email">Email Address*</label>
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="commonService.registerObj.registeration_data.phone" [ngClass]="{'is-invalid': submitted && regForm.phone.errors || (regForm.phone.invalid && (regForm.phone.dirty || regForm.phone.touched))}" class="form-control" placeholder="(XXX) XXX - XXXX" (keydown)="phoneNoMask($event)" id="mobile" formControlName="phone">
+      <label for="mobile">Mobile Number*</label>
+
+    </div>
+
+    <div class="form-footer">
+      <div>
+        <p class="mb-0">
+          Alerts are how you can know what is going on in your account in real-time. Click below to register for text and/or email alerts
+        </p>
+      </div>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" checked name="alert" id="exampleRadios1" value="textAlert" formControlName="alert" [(ngModel)]="commonService.registerObj.registeration_data.IsEmailAlert">
+          <label class="form-check-label" for="exampleRadios1">
+            Receive account updates via Text Alerts
+          </label>
+        </div>
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="radio" name="alert" id="exampleRadios2" value="emailAlert" formControlName="alert" [(ngModel)]="commonService.registerObj.registeration_data.IsEmailAlert">
+          <label class="form-check-label" for="exampleRadios2">
+            Receive account updates via Email Alerts
+          </label>
+        </div>
+       <!-- <p class="error" *ngIf="!registerForm.controls.alert.valid">*Note: Need to select above any of the alert reminder</p>-->
+      </div>
+    </div>
+    <!-- form footer  -->
+    <p class="error" *ngIf="error_msg">*Note : All fields required</p>
+    <button type="submit" class="form-btn float-right my-3" [disabled]="!registerForm.valid">Next <i class="ml-2 fa fa-caret-right" aria-hidden="true"></i></button>
+    <div class="clearfix"></div>
+
+  </form>
+</div>

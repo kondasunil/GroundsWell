@@ -1,0 +1,91 @@
+<div>
+  <form>
+    <h4>THIS IS YOUR FINAL STEP! </h4>
+    <h4 class="mb-4">MAKE SURE YOU VERIFY ALL YOUR INFORMATION IS CORRECT</h4>
+    <div class="confirm-container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 position-relative">
+              <div class="confirm-left-cont">
+                <table class="table table-borderless mb-0">
+                  <tbody>
+                    <tr>
+                      <td>Name:</td>
+                      <td>{{commonService.registerObj.registeration_data.firstName}} {{commonService.registerObj.registeration_data.lastName}}</td>
+                    </tr>
+                    <tr>
+                      <td>Address:</td>
+                      <td>{{commonService.registerObj.registeration_data.address}}</td>
+                    </tr>
+                    <tr>
+                      <td>City, State, Zip:</td>
+                      <td>{{commonService.registerObj.registeration_data.city}}</td>
+                      <td>{{commonService.registerObj.registeration_data.state}}</td>
+                      <td>{{commonService.registerObj.registeration_data.zipcode}}</td>
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td>{{commonService.registerObj.registeration_data.email}}</td>
+                    </tr>
+                    <tr>
+                      <td>Mobile:</td>
+                      <td>{{commonService.registerObj.registeration_data.mobile}}</td>
+                    </tr>
+                    <tr>
+                      <td>SSN:</td>
+                      <td>{{commonService.registerObj.registeration_data.ssn}}</td>
+                    </tr>
+                    <tr>
+                      <td>D.O.B:</td>
+                      <td>{{commonService.registerObj.registeration_data.dob}}</td>
+                    </tr>
+                    <tr>
+                      <td>4-H Country:</td>
+                      <td>Yolo</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a class="edit-link" (click)="editForm('Content')">Edit</a>
+              </div>
+            </div>
+            <!-- col 6-->
+            <div class="col-md-6 col-lg-6">
+              <div class="confirm-right-top">
+                <h5>Transfer funds to</h5>
+                <h5>Load my new card</h5>
+                <div class="dollar-container">
+                  <span>$</span>
+                  <input type="number" [value]="commonService.registerObj.registeration_data.cardamount">{{commonService.registerObj.amountTransfer}}
+                </div>
+                <p class="mb-0">
+                  <i>Your bank account will be debited and funds will be credited to your 4-H card in 3-5 business days.</i>
+                </p>
+                <a class="edit-link" (click)="editForm('Funds')">Edit</a>
+              </div>
+              <div class="confirm-right-middle">
+                <p class="mb-0">I <a><b>am</b></a> electing to RoundUp my purchases to be donated directly to 4-H UC ANR</p>
+                <a (click)="editForm('RoundupFunds')" class="edit-link">Edit</a>
+              </div>
+              <div class="confirm-right-bottom">
+                <p class="mb-0">Username: {{commonService.registerObj.registeration_data.email}}</p>
+                <p class="mb-0">Password: <span>{{commonService.registerObj.registeration_data.password}}</span></p>
+                <a (click)="editForm('Accounts')" class="edit-link">Edit</a>
+              </div>
+            </div>
+            <!-- col 6-->
+          </div>
+        </div>
+        <!-- col 12 -->
+      </div>
+    </div>
+    <!-- confirm container-->
+
+    <div class="form-buttons">
+      <button type="submit" class="form-btn float-right mt-3" (click)="confirmDetails()">Submit <i class="ml-2 fa fa-caret-right" aria-hidden="true"></i></button>
+
+    </div>
+
+
+  </form>
+</div>

@@ -1,0 +1,64 @@
+
+<div>
+  <form [formGroup]="accountForm" autocomplete="off" (ngSubmit)=accountDetailsForm()>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="form-group">
+          <input type="number" id="social" class="form-control" placeholder="XXX - XXX - XXXX" formControlName="ssn" [(ngModel)]="commonService.registerObj.registeration_data.ssn">
+          <!--<input type="text" (blur)="showMask = true" (click)="showMask = !showMask" name="value" (ngModelChange)="value = $event" [ngModel]="value | mask:showMask">-->
+          <label for="social">Social Security Number</label>
+        </div>
+      </div>
+      <!-- col 8-->
+      <div class="col-md-3">
+        <div class="form-group">
+          <input type="text" class="form-control" bsDatepicker [bsConfig]="bsConfig" formControlName="dob" [(ngModel)]="commonService.registerObj.registeration_data.dob">
+          <label for="dob">Date of Birth*</label>
+        </div>
+      </div>
+      <!-- col 4-->
+    </div>
+
+    <h3 class="mb-0">Account Login Information</h3>
+    <p class="mb-5">As a way to manage your new account we give you a full-featured website. </p>
+
+    <div class="form-group">
+      <input type="text" id="addr1" class="form-control" [value]="commonService.registerObj.registeration_data.email" disabled>
+      <label for="addr1">
+        Username<i>(Your username is your email for security purposes)</i>
+      </label>
+    </div>
+    <div class="form-group">
+      <input type="password" formControlName="password" [(ngModel)]="commonService.registerObj.registeration_data.password" class="form-control" [ngClass]="{'is-invalid': submitted && accountsForm.password.errors || (accountsForm.password.invalid && (accountsForm.password.dirty || accountsForm.password.touched))}">
+      <label for="pass">Password*</label>
+    </div>
+    <div class="form-group">
+      <input type="password" formControlName="resetPassword" [ngClass]="{'is-invalid': submitted && accountsForm.password.errors || (accountsForm.password.invalid && (accountsForm.password.dirty || accountsForm.password.touched))}" class="form-control">
+      <label for="repass">Re-enter Password*</label>
+      <div class="text-danger">
+        <div *ngIf="submitted && accountsForm.resetPassword.errors || (accountsForm.resetPassword.invalid && (accountsForm.resetPassword.dirty || accountsForm.resetPassword.touched))">
+          <div *ngIf="accountsForm.resetPassword.errors.required">
+            <p class="error">Please Enter Confirm Password</p>
+          </div>
+          <div *ngIf="accountsForm.resetPassword.errors.mustMatch">
+            <p class="error">Passwords must match</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-check mt-2 as-radio">
+      <input class="form-check-input" type="radio" value="isTerms" name="isTerms" formControlName="isTerms" [(ngModel)]="commonService.registerObj.registeration_data.isTerms">
+      <label class="form-check-label" for="exampleRadios1">
+        <!-- Lorem ipsum dolor sit <a (click)="Model('CashFee')">amet</a> consectetur <a href="#">adipisicing</a> elit. -->
+        I agree to the <a href="#">Card Fees</a>, <a href="#">Terms and Conditions</a> and <a href="#">Electronic Disclosures</a>
+
+      </label>
+      <p class="red" *ngIf="!accountForm.controls['isTerms'].valid">*Note: Terms & Conditions is mandatory</p>
+    </div>
+    <!--[disabled]="!accountForm.valid"-->
+    <div class="form-buttons">
+      <button type="button" class="form-btn float-right" (click)="backtoAddress()"><i class="fa fa-caret-left mr-2" aria-hidden="true"></i> Previous </button>
+      <button type="submit" [disabled]="!accountForm.valid" class="form-btn float-right ml-3">Next <i class="ml-2 fa fa-caret-right" aria-hidden="true"></i></button>
+    </div>
+  </form>
+</div>

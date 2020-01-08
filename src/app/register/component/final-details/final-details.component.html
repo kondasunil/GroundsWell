@@ -1,0 +1,81 @@
+<div >
+  <form action="/action_page.php">
+    <h4 class="success">Congratulations!</h4>
+    <h4 class="mb-4">Your application is complete. Your 4-H GroundSwell card is on its way!</h4>
+    <div class="confirm-container-final">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 position-relative">
+              <div class="confirm-left-cont">
+                <table class="table table-borderless mb-0">
+                  <tbody>
+                    <tr>
+                      <td>Name:</td>
+                      <td>{{commonService.registerObj.registeration_data.firstName}} {{commonService.registerObj.lastName}}</td>
+                    </tr>
+                    <tr>
+                      <td>Address:</td>
+                      <td>{{commonService.registerObj.registeration_data.address}}</td>
+                    </tr>
+                    <tr>
+                      <td>City, State, Zip:</td>
+                      <td>{{commonService.registerObj.registeration_data.city}} {{commonService.registerObj.registeration_data.state}} {{commonService.registerObj.registeration_data.zipcode}}</td>
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td>{{commonService.registerObj.registeration_data.email}}</td>
+                    </tr>
+                    <tr>
+                      <td>Mobile:</td>
+                      <td>{{commonService.registerObj.registeration_data.mobile}}</td>
+                    </tr>
+                    <tr>
+                      <td>SSN:</td>
+                      <td>{{commonService.registerObj.registeration_data.ssn}}</td>
+                    </tr>
+                    <tr>
+                      <td>D.O.B:</td>
+                      <td>{{commonService.registerObj.registeration_data.dob}}</td>
+                    </tr>
+                    <tr>
+                      <td>4-H Country:</td>
+                      <td>Yolo</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- col 6-->
+            <div class="col-md-6 col-lg-6">
+              <div class="confirm-right-top">
+                <h5>The below amount will be transferred from your selected bank to load your new card</h5>
+                <div class="dollar-container-final">
+                  <span class="mr-2" *ngIf="IsTransfer">${{commonService.registerObj.registeration_data.cardamount}}</span>
+                  <span *ngIf="!IsTransfer">$0</span>
+                  <span><i>From Account #12-324834973 at Bank of America NSFB</i></span>
+                </div>
+                <p class="mb-0">
+                  <i>Your bank account will be debited and funds will be credited to your 4-H card in 3-5 business days.</i>
+                </p>
+              </div>
+              <div class="confirm-right-middle">
+                <p class="mb-0">I <b>am</b> electing to RoundUp my purchases to be donated directly to 4-H UC ANR</p>
+              </div>
+              <div class="confirm-right-bottom d-flex justify-content-between">
+                <div>
+                  <p class="mb-0">Username: {{commonService.registerObj.registeration_data.email}}</p>
+                  <p class="mb-0">Password: {{commonService.registerObj.registeration_data.password}}</p>
+                </div>
+                <button class="final-login">Login</button>
+              </div>
+            </div>
+            <!-- col 6-->
+          </div>
+        </div>
+        <!-- col 12 -->
+      </div>
+    </div>
+    <!-- confirm container-->
+  </form>
+</div>
